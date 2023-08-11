@@ -1,3 +1,3 @@
-module ali
+module web
 
 go 1.20
