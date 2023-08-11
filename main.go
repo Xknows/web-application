@@ -4,18 +4,24 @@ import (
 	"fmt"
 	"net/http"
 )
+var port = ":8889" 
 
+func Home(wr http.ResponseWriter, r *http.Request){
+	fmt.Fprintf(wr,"Home page")
+}
 
-var port = ":8888" 
+func about(wr http.ResponseWriter, r *http.Request){
+	fmt.Fprintf(wr,"yep!")
+}
+
 
 func main() {
-
-	http.HandleFunc("/", func(wr http.ResponseWriter, r *http.Request ){
-		_,_ = fmt.Fprintf(wr, "hello world")
+	http.HandleFunc("/home", Home)
+	http.HandleFunc("/about", about)
 	
-
-	})
- _ = http.ListenAndServe(port, nil)
+	fmt.Println("running on port:",port)
+	_ = http.ListenAndServe(port, nil)
+	
 }
 
 
