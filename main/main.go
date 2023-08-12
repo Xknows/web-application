@@ -6,8 +6,9 @@ import (
 	"web/packeges/handlers"
 )
 
-var port = ":8889"
+const port = ":8889"
 
+// main function
 func main() {
 	http.HandleFunc("/home", handlers.Home)
 
