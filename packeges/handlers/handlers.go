@@ -6,5 +6,5 @@ import (
 )
 
 func Home(rw http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(rw, "home.tmpl")
+	render.RenderTemplate(rw, "home.page.tmpl")
 }
