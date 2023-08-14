@@ -40,6 +40,7 @@ func RenderTemplate(rw http.ResponseWriter, tmpl string) {
 // a map of string pointing to "*template.Template" for storing templates
 func createTemplateCache() (map[string]*template.Template, error) {
 	myChace := make(map[string]*template.Template)
+
 	// get all *.page.tmpl files
 	pages, error := filepath.Glob("./templates/*.page.tmpl")
 	if error != nil {
@@ -48,6 +49,7 @@ func createTemplateCache() (map[string]*template.Template, error) {
 	// stor all to "name" of files by real name not path name
 	for _, page := range pages {
 		name := filepath.Base(page)
+
 		// parse
 		templateSet, error := template.New(name).ParseFiles(page)
 		if error != nil {
